@@ -1,0 +1,18 @@
+baseURL = "http://20y.hu/"
+languageCode = "en-us"
+theme = "ananke"
+title = "Here be trees"
+MetaDataFormat = "yaml"
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+
+[params]
+  featured_image = "/images/torok-paints-1.jpg"
+  cover_dimming_class = "bg-black-20"
+  custom_css = ["css/custom.css"]
+
+[[menu.main]]
+name = "Mixtapes"
+weight = 0
+identifier = "mixtapes"
+url = "/mixtapes/"
