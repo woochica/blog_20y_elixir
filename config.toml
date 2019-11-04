@@ -1,7 +1,7 @@
 baseURL = "http://20y.hu/"
 languageCode = "en-us"
 theme = "ananke"
-title = "Here be trees"
+title = "Here be trees 🌳"
 MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
