@@ -1,4 +1,4 @@
-baseURL = "http://20y.hu/"
+baseURL = "https://20y.hu/"
 languageCode = "en-us"
 theme = "ananke"
 title = "Gabor Torok 🌳"
