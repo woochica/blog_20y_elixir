@@ -7,7 +7,7 @@ DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 
 [params]
-  featured_image = "/images/torok-paints-2.jpg"
+  featured_image = "/images/torok-paints-2-web.jpg"
   cover_dimming_class = "bg-black-20"
   custom_css = ["css/custom.css"]
 
