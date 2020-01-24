@@ -6,6 +6,24 @@ MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 
+[taxonomies]
+toolbox = "toolbox"
+
+[related]
+
+threshold = 80
+includeNewer = true
+toLower = false
+
+[[related.indices]]
+name = "toolboxes"
+weight = 100
+[[related.indices]]
+name  = "date"
+weight = 10
+pattern = "2006"
+
+
 [params]
   featured_image = "/images/torok-paints-2-web.jpg"
   cover_dimming_class = "bg-black-20"
