@@ -25,8 +25,8 @@ pattern = "2006"
 
 
 [params]
-  featured_image = "/images/torok-paints-2-web.jpg"
-  cover_dimming_class = "bg-black-50"
+  featured_image = "/images/torok-paints-3-web.jpg"
+  cover_dimming_class = "bg-black-20"
   custom_css = ["css/custom.css"]
 
 [[menu.main]]
