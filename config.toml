@@ -10,13 +10,12 @@ SectionPagesMenu = "main"
 toolbox = "toolbox"
 
 [related]
-
 threshold = 80
 includeNewer = true
-toLower = false
+toLower = true
 
 [[related.indices]]
-name = "toolboxes"
+name = "toolbox"
 weight = 100
 [[related.indices]]
 name  = "date"
