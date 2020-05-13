@@ -1,3 +1,5 @@
+{{ define "title" }}{{ with .Params.Title }}{{ . }} ✿ {{ end }}{{ .Site.Title }}{{ end }}
+
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
 <div class="flex-l flex-wrap justify-between mw8 center ph3 mt4">
