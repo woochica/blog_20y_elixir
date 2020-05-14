@@ -12,7 +12,7 @@ toolbox = "toolbox"
 [related]
 threshold = 80
 includeNewer = true
-toLower = true
+toLower = false
 
 [[related.indices]]
 name = "toolbox"
