@@ -5,6 +5,7 @@ title = "Gabor Torok"
 MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
+enableRobotsTXT = true
 
 [taxonomies]
 toolbox = "toolbox"
