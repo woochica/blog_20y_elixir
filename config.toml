@@ -6,7 +6,7 @@ MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 enableRobotsTXT = true
-paginate = 9
+paginate = 999
 
 [taxonomies]
 toolbox = "toolbox"
