@@ -1,23 +1,25 @@
 {{ define "title" }}{{ with .Params.Title }}{{ . }} ✿ {{ end }}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<div class="pa3 pa4-ns nested-copy-line-height nested-img nested-list-reset">
+<div class="pa3 pa4-ns nested-copy-line-height nested-img nested-list-reset nested-links">
+    <span class="dib w-100 tc f3 b">🙝</span>
     <section class="flex-ns flex-wrap justify-around">
-        <ul class="bg-white pv2 ph4">
+        <ul class="pv2">
             {{ range .Paginator.Pages }}
-            <li class="cf w-100">
-                <h2 class="f4 mv2 normal lh-title cf pv0 ph0 flex items-center">
-                    <time class="fl w-30 f6 tracked normal tr" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                        <div class="pr4">{{- .Date.Format "January 2, 2006" -}}</div>
-                    </time>
-                    <a href="{{ .Permalink }}" class="fl w-70 link">
+            <li class="cf w-100 ph4">
+                <h2 class="f4 f3-l mv2 normal lh-title cf pv0 ph0 flex flex-wrap">
+                    <a href="{{ .Permalink }}" class="dib link b athelas mr3">
                         {{ .Title }}
                     </a>
-                </h1>
+                    <time class="dib f5 tracked normal" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" style="line-height:2">
+                        {{- .Date.Format "January 2, 2006" -}}
+                    </time>
+                </h2>
             </li>
             {{ end }}
         </ul>
     </section>
+    <span class="dib w-100 tc f3 b">❧</span>
     {{- template "_internal/pagination.html" . -}}
 </div>
 {{ end }}
