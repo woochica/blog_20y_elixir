@@ -6,13 +6,13 @@
     <div class="{{ .Site.Params.cover_dimming_class | default "bg-black-60" }}">
         {{ partial "site-navigation.html" .}}
         <div class="pv4 pv4-l ph3 ph4-ns">
-            <h1 class="f2 f-subheadline-l fw2 white-90 mb1 lh-title athelas">
+            <h1 class="f2 fw5 white-90 mb2 mt4 mt0-l mr4 ml4 lh-title ttu fr-l">
                 {{ .Title | default .Site.Title }}
             </h1>
-            {{ with .Params.description }}
-            <p class="fw4 f3 f2-l white-80 measure-wide-l lh-copy mt8 mb4">
+            {{ with .Content }}
+            <div class="fw4 f3 f2-l white-80 measure-wide-l lh-copy mt2 mt6-l mb4">
                 {{ . }}
-            </p>
+            </div>
             {{ end }}
         </div>
     </div>
