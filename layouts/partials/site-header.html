@@ -3,18 +3,19 @@
 {{ if .IsHome }}
 {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
 <header class="cover bg-top" style="background-image: url('{{ $featured_image }}');">
-    <div class="{{ .Site.Params.cover_dimming_class | default "bg-black-60" }}">
+    <div class="{{ .Site.Params.cover_dimming_class | default "bg-black-60" }} cb">
         {{ partial "site-navigation.html" .}}
-        <div class="pv4 pv4-l ph3 ph4-ns">
-            <h1 class="f2 fw5 white-90 mb2 mt4 mt0-l mr4 ml4 lh-title ttu fr-l">
+        <div class="pv4 pv4-l ph3 ph4-ns cb">
+            <h1 class="f2 fw5 white-90 mb0 mt0 mt0-l mr4 ml0 lh-title ttu fr">
                 {{ .Title | default .Site.Title }}
             </h1>
             {{ with .Content }}
-            <div class="fw4 f3 f2-l white-80 measure-wide-l lh-copy mt2 mt6-l mb4">
+            <div class="fw4 f3 f2-l white-80 measure-wide-l lh-copy mt0 mb4 pb0">
                 {{ . }}
             </div>
             {{ end }}
         </div>
+        <div class="cb"></div>
     </div>
 </header>
 {{ else }}
