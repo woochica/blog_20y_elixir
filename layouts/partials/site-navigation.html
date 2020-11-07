@@ -11,7 +11,7 @@
             <ul class="pl0 mr3">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
-                <li class="list f5 f4-ns fw6 dib pr1 pa1 pb1">
+                <li class="list f5 f4-ns fw6 dib pr1 pa1 pb1 ttu">
                     <a class="hover-white no-underline white-90{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Name }} page">
                         {{ .Name }}
                     </a>
