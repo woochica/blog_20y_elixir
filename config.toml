@@ -27,8 +27,8 @@ pattern = "2006"
 
 [params]
   featured_image = "/images/torok-paints-1-web.jpg"
-  cover_dimming_class = "bg-pink-30"
-  custom_css = ["css/custom.css?2020110801"]
+  cover_dimming_class = "bg-pink-30 bg-brush"
+  custom_css = ["css/custom.css?2020111101"]
 
 [[menu.main]]
 name = "Mixtapes"
