@@ -2,7 +2,7 @@
 
 {{ define "main" }}
 <div class="pa3 pa4-ns nested-copy-line-height nested-img nested-list-reset nested-links">
-    <span class="dib w-100 tc f3 b">🙝</span>
+    <span class="dib w-100 tc f3 b mb4">🙝</span>
     <section class="flex-ns flex-wrap justify-around">
         <table class="collapse">
             <tbody>
@@ -11,7 +11,7 @@
                         <td class="pv1" align="right">
                     <ul class="mv0 dib mr3">
                         {{ range .Params.toolbox }}
-                        <li class="list dib">
+                        <li class="list dib ml1">
                             <a href="{{ "/toolbox/" | relLangURL }}{{ . | urlize }}" class="link f7 br3 no-underline ba ph2 pv1 dib courier
                                 {{ if (eq . "Kitchen") }}bg-light-pink{{ end }}
                                 {{ if (eq . "Work with nature") }}bg-light-green{{ end }}
@@ -37,7 +37,7 @@
                     {{ end }}
                     </table>
     </section>
-    <span class="dib w-100 tc f3 b">❧</span>
+    <span class="dib w-100 tc f3 b mt4">❧</span>
     <img src="/images/dogs-running.gif" alt="" class="keepitreal center ma4"/>
     {{- template "_internal/pagination.html" . -}}
 </div>
