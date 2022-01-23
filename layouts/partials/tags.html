@@ -1,9 +1,0 @@
-<ul class="pa0 pt3">
-    {{ range .Params.toolbox }}
-    <li class="list">
-        <a href="{{ "/toolbox/" | relLangURL }}{{ . | urlize }}" class="link f5 grow no-underline br3 ba ph3 pv2 mb2 dib black courier">
-            {{- . -}}
-        </a>
-    </li>
-    {{ end }}
-</ul>
