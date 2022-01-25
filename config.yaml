@@ -6,7 +6,7 @@ theme: cupper-hugo-theme
 enableGitInfo: false
 
 taxonomies:
-  tags: toolbox
+  tags: tags
 
 permalinks:
   post: /journal/:filename/
@@ -41,8 +41,8 @@ menu:
     - name: Journal
       url: /journal/
       weight: 1
-    - name: Toolbox
-      url: /toolbox/
+    - name: Tags
+      url: /tags/
       weight: 2
     - name: Blogroll
       url: /blogroll/
