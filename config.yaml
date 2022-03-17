@@ -15,7 +15,7 @@ imaging:
   quality: 99
 
 params:
-  description: To the curious
+  description: Semmi, de nem biztos
   homeMetaContent: Contemplations on life
   footer: Made with [Hugo](https://gohugo.io/). Themed by [Cupper](https://github.com/zwbetz-gh/cupper-hugo-theme).
   # For more date formats see https://gohugo.io/functions/format/
