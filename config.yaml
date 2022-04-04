@@ -1,7 +1,7 @@
 baseURL: https://20y.hu
 languageCode: en-us
 defaultContentLanguage: en
-title: 20Y
+title: Gabor Torok
 theme: cupper-hugo-theme
 enableGitInfo: false
 
@@ -29,8 +29,8 @@ params:
   moveFooterToHeader: false
   navTitleText: 20Y
   logoAlt: An alternative text description of the logo
-  # customCss:
-  #   - css/custom_01.css
+  customCss:
+    - css/custom.css
   #   - css/custom_02.css
   # customJs:
   #   - js/custom_01.js
