@@ -4,6 +4,7 @@ defaultContentLanguage: en
 title: Gabor Torok
 theme: cupper-hugo-theme
 enableGitInfo: false
+enableRobotsTXT: true
 
 taxonomies:
   tags: tags
