@@ -27,7 +27,7 @@ params:
   showThemeSwitcher: false
   defaultDarkTheme: false
   moveFooterToHeader: false
-  navTitleText: 20Y
+  navTitleText: ~slink/
   logoAlt: An alternative text description of the logo
   customCss:
     - css/custom.css
