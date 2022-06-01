@@ -9,6 +9,9 @@
     aria-label="{{ T "search_aria_label" }}"
   />
   {{ end }}
+  <div class="post">
+    {{ .Content }}
+  </div>
   <ul class="patterns-list" id="list">
     {{ range .Pages.ByPublishDate.Reverse }}
     <li>
