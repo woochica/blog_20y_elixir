@@ -1,5 +1,6 @@
 {{ define "main" }}
 <main id="main">
+  <header>
   <h1>{{ .Title }}</h1>
   {{ if site.Params.search }}
   <input
@@ -9,9 +10,12 @@
     aria-label="{{ T "search_aria_label" }}"
   />
   {{ end }}
+  {{ if .Content }}
   <div class="post">
     {{ .Content }}
   </div>
+  {{ end }}
+  </header>
   <ul class="patterns-list" id="list">
     {{ range .Pages.ByPublishDate.Reverse }}
     <li>
