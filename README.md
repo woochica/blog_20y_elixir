@@ -1,12 +1,13 @@
-# Engine: Hugo
+# Install
 
-https://gohugo.io/content-management/
+``` shell
+brew install hugo
+git submodule init
+git submodule update
+make run
+```
 
-# Theme: Ananke
+# Used tools
 
-https://themes.gohugo.io/gohugo-theme-ananke/
-https://github.com/budparr/gohugo-theme-ananke/tree/master/exampleSite/content
-
-# CSS framework with Ananke
-
-http://tachyons.io/docs/typography/text-transform/
+- Engine: [Hugo](https://gohugo.io/content-management/)
+- Hugo theme: [cupper-hugo-theme](https://github.com/zwbetz-gh/cupper-hugo-theme)
