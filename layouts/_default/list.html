@@ -31,8 +31,9 @@
           </svg>
           {{ .Title }}
         </a>
+        {{ $langName := cond (eq .Params.Lang "en") "in English" (cond (eq .Params.Lang "hu") "magyarul" (cond (eq .Params.Lang "es") "en español" "yolo")) }}
         {{ if (and (isset .Params "lang") ((not (eq .Params.Lang "en")))) }}
-        <span class="lang">{{ .Params.Lang }}</span>
+        <span class="lang">{{ $langName }}</span>
         {{ end }}
       </h2>
     </li>
