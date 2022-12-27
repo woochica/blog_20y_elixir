@@ -1,0 +1,8 @@
+<header class="intro-and-nav" role="banner">
+  <div>
+    {{ partial "nav.html" . }}
+    {{ if eq .Site.Params.moveFooterToHeader true }}
+      {{ partial "footer.html" . }}
+    {{ end }}
+  </div>
+</header>
