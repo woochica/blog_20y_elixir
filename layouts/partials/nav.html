@@ -32,6 +32,10 @@
       {{ $icon = "link" }}
       {{ $viewbox = "0 0 50 50" }}
       {{ end }}
+      {{ if (eq .Name "Resume") }}
+      {{ $icon = "doc" }}
+      {{ $viewbox = "0 0 35 45" }}
+      {{ end }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
         <svg class="{{ $icon }}-icon" aria-hidden="true" focusable="false" viewBox="{{ $viewbox }}">
           <use xlink:href="#{{ $icon }}"></use>
