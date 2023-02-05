@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main id="main">
   <header>
+  <div class="wrapper">
   <h1>{{ .Title }}</h1>
   {{ if site.Params.search }}
   <input
@@ -15,6 +16,7 @@
     {{ .Content }}
   </div>
   {{ end }}
+  </div>
   </header>
   <ul class="patterns-list" id="list">
     {{ range .Pages.ByPublishDate.Reverse }}

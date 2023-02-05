@@ -31,7 +31,7 @@ params:
   navTitleText: ~slink/
   logoAlt: An alternative text description of the logo
   customCss:
-    - css/custom.css?2023020101
+    - css/custom.css?2023020501
   #   - css/custom_02.css
   # customJs:
   #   - js/custom_01.js
