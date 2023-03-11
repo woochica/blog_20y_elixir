@@ -19,7 +19,7 @@
   </div>
   </header>
   <ul class="patterns-list" id="list">
-    {{ range .Pages.ByPublishDate.Reverse }}
+    {{ range .Pages.ByLastmod.Reverse }}
     <li>
       <h2>
         <a href="{{ .RelPermalink }}">

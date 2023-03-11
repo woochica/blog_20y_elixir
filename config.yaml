@@ -6,6 +6,22 @@ theme: cupper-hugo-theme
 enableGitInfo: false
 enableRobotsTXT: true
 
+frontmatter:
+  date:
+  - date
+  - publishDate
+  - lastmod
+  - :default
+  expiryDate:
+  - expiryDate
+  lastmod:
+  - lastmod
+  - date
+  - publishDate
+  publishDate:
+  - publishDate
+  - date
+
 taxonomies:
   tags: tags
 
