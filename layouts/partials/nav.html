@@ -28,6 +28,10 @@
       {{ $icon = "mixtape" }}
       {{ $viewbox = "0 0 485 485" }}
       {{ end }}
+      {{ if (eq .Name "Postcard") }}
+      {{ $icon = "balloon" }}
+      {{ $viewbox = "0 0 141.73228 177.16535" }}
+      {{ end }}
       {{ if (eq .Name "Blogroll") }}
       {{ $icon = "link" }}
       {{ $viewbox = "0 0 50 50" }}

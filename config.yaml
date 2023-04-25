@@ -61,6 +61,9 @@ menu:
     - name: Tags
       url: /tags/
       weight: 2
+    - name: Postcard
+      url: /postcard/
+      weight: 3
     - name: Blogroll
       url: /blogroll/
       weight: 3
