@@ -3,6 +3,7 @@ User-agent: *
 Disallow: /~slink/toolbox/
 Disallow: /~slink/tags/
 Disallow: /~slink/resume/
+Disallow: /~slink/contact/
 {{ else }}
 Disallow: /
 {{ end }}
