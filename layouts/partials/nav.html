@@ -40,6 +40,10 @@
       {{ $icon = "doc" }}
       {{ $viewbox = "0 0 35 45" }}
       {{ end }}
+      {{ if (eq .Name "Contact") }}
+      {{ $icon = "info" }}
+      {{ $viewbox = "0 0 35 45" }}
+      {{ end }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
         <svg class="{{ $icon }}-icon" aria-hidden="true" focusable="false" viewBox="{{ $viewbox }}">
           <use xlink:href="#{{ $icon }}"></use>

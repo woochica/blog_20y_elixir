@@ -70,8 +70,8 @@ menu:
     - name: Mixtapes
       url: /mixtapes/
       weight: 4
-    - name: Resume
-      url: /resume/
+    - name: Contact
+      url: /contact/
       weight: 5
     - name: RSS
       url: /index.xml
