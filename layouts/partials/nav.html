@@ -45,7 +45,7 @@
       {{ $viewbox = "0 0 35 45" }}
       {{ end }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
-        <svg class="{{ $icon }}-icon" aria-hidden="true" focusable="false" viewBox="{{ $viewbox }}">
+        <svg class="{{ $icon }}-icon nav-icon" aria-hidden="true" focusable="false" viewBox="{{ $viewbox }}">
           <use xlink:href="#{{ $icon }}"></use>
         </svg>
         <span class="text">{{ .Name }}</span>
