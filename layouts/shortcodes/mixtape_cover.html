@@ -1,0 +1,14 @@
+<style>
+.main-and-footer {
+    background-image: url({{ .Page.Site.BaseURL }}content/{{ .Get 0 }});
+    background-blend-mode: color-burn;
+}
+.main-and-footer > div {
+    background-color: rgba(255,255,255,0.0)!important;
+}
+#main {
+    background: transparent;
+}
+</style>
+
+<img src="{{ .Page.Site.BaseURL }}content/{{ .Get 0 }}" />
