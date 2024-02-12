@@ -1,7 +1,7 @@
 <style>
 .main-and-footer {
     background-image: url({{ .Page.Site.BaseURL }}content/{{ .Get 0 }});
-    background-blend-mode: color-burn;
+    background-blend-mode: {{ if (.Get 1) }}{{ (.Get 1) }}{{ else }}color-burn{{ end }};
 }
 .main-and-footer > div {
     background-color: rgba(255,255,255,0.0)!important;
