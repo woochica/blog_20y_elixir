@@ -1,10 +1,9 @@
 <nav id="patterns-nav" class="patterns" role="navigation">
   <h2 class="vh">{{ T "nav_main_navigation" }}</h2>
-  <button id="menu-button" aria-expanded="false">
+  <button id="menu-button" aria-expanded="false" title="{{ T "nav_main_navigation" }}">
     <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
       <use xlink:href="#menu"></use>
     </svg>
-    {{ .Site.Title }}
   </button>
   {{ $current := . }}
   <ul id="patterns-list">
@@ -14,40 +13,7 @@
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (and (eq .Name "Journal") (eq $current.Section "journal")) }}
       {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
-      {{ $icon := "bookmark" }}
-      {{ $viewbox := "0 0 40 50" }}
-      {{ if (eq .Name "Tags") }}
-      {{ $icon = "tag" }}
-      {{ $viewbox = "0 0 177.16535 177.16535" }}
-      {{ end }}
-      {{ if (eq .Name "RSS") }}
-      {{ $icon = "feed" }}
-      {{ $viewbox = "0 0 141.73228 177.16535" }}
-      {{ end }}
-      {{ if (eq .Name "Mixtapes") }}
-      {{ $icon = "mixtape" }}
-      {{ $viewbox = "0 0 485 485" }}
-      {{ end }}
-      {{ if (eq .Name "Postcard") }}
-      {{ $icon = "balloon" }}
-      {{ $viewbox = "0 0 141.73228 177.16535" }}
-      {{ end }}
-      {{ if (eq .Name "Blogroll") }}
-      {{ $icon = "link" }}
-      {{ $viewbox = "0 0 50 50" }}
-      {{ end }}
-      {{ if (eq .Name "Resume") }}
-      {{ $icon = "doc" }}
-      {{ $viewbox = "0 0 35 45" }}
-      {{ end }}
-      {{ if (eq .Name "Contact") }}
-      {{ $icon = "info" }}
-      {{ $viewbox = "0 0 35 45" }}
-      {{ end }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
-        <svg class="{{ $icon }}-icon nav-icon" aria-hidden="true" focusable="false" viewBox="{{ $viewbox }}">
-          <use xlink:href="#{{ $icon }}"></use>
-        </svg>
         <span class="text">{{ .Name }}</span>
       </a>
     </li>
