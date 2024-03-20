@@ -3,11 +3,13 @@
 <style>
 .main-and-footer {
     background-image: url({{ .Page.Site.BaseURL }}content/{{ .Get 0 }});
-    background-blend-mode: {{ if (.Get 1) }}{{ (.Get 1) }}{{ else }}color-burn{{ end }};
+    background-blend-mode: color-burn;
 }
+
 .main-and-footer > div {
-    background-color: rgba(255,255,255,0.0)!important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
+
 #main {
     background: transparent;
 }
