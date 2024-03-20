@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <main id="main" class="single">
+  <main id="main" class="single {{ if $.Param "section" }}wide{{ end }}">
 
     <h1>
       {{ .Title }}
