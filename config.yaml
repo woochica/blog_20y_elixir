@@ -38,7 +38,7 @@ params:
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: January 2, 2006
   codePenUser: someUser
-  katex: true
+  katex: false
   hideHeaderLinks: false
   search: false
   showThemeSwitcher: false
