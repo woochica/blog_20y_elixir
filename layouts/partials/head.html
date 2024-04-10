@@ -6,6 +6,10 @@
   {{ hugo.Generator }}
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  {{- if not .Params.Index -}}
+  <meta name="robots" content="noindex">
+  {{- end -}}
+
   {{ if .IsHome }}
     {{ with .Site.Params.homeMetaContent }}
       <meta name="description" content="{{ . | plainify }}">
