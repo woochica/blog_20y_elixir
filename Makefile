@@ -1,4 +1,4 @@
-.PHONY:	build
+all: build deploy
 
 build:
 	HUGO_ENV=production hugo --gc --minify
@@ -6,3 +6,6 @@ build:
 run:
 	hugo server -D &
 	open http://localhost:1313/~slink/
+
+deploy:
+	lftp -f upload.x
