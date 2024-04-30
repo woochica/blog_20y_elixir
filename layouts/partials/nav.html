@@ -14,7 +14,7 @@
       {{ $active = or $active (and (eq .Name "Journal") (eq $current.Section "journal")) }}
       {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
-        <span class="text">{{ .Name }}</span>
+        <span class="text">{{ if $active }}✨{{ end }} {{ .Name }}</span>
       </a>
     </li>
   {{ end }}
