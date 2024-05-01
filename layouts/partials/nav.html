@@ -13,6 +13,8 @@
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (and (eq .Name "Journal") (eq $current.Section "journal")) }}
       {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+      {{ $active = or $active (and (eq .Name "Resume") (eq $current.Section "contact")) }}
+      {{ $active = or $active (and (eq .Name "Contact") (or (eq $current.Page.Name "Resume") (eq $current.Page.Name "I cook vegan food"))) }}
       <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
         <span class="text">{{ if $active }}✨{{ end }} {{ .Name }}</span>
       </a>
