@@ -18,8 +18,26 @@
   {{ end }}
   </div>
   </header>
-  <ul class="patterns-list" id="list">
+
+  {{ $prevYear := 9999 }}
+  {{ $veryOldYear := 2019 }}
+  <section class="index">
     {{ range .Pages.ByLastmod.Reverse }}
+      {{ if (gt $prevYear (.Lastmod.Format "2006")) }}
+        {{ if (ne $prevYear 9999) }}
+        {{ if (gt $prevYear $veryOldYear) }}
+        </ul>
+        {{ end }}
+        {{ end }}
+      {{ if (gt $prevYear $veryOldYear) }}
+      {{ if (le (.Lastmod.Format "2006") $veryOldYear) }}
+      <h1>a long time ago</h1>
+      {{ else }}
+      <h1>{{ .Lastmod.Format "2006" }}</h1>
+      {{ end }}
+      {{ end }}
+      <ul class="patterns-list index-list">
+      {{ end }}
     <li>
       <h2>
         <a href="{{ .RelPermalink }}">
@@ -37,8 +55,12 @@
         {{ end }}
       </div>
     </li>
+    {{ if le $veryOldYear (.Lastmod.Format "2006") }}
+    {{ $prevYear = .Date.Format "2006"}}
     {{ end }}
-  </ul>
+    {{ end }}
+    </ul>
+  </section>
 
 </main>
 {{ end }}
