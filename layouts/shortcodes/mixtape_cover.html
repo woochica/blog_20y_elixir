@@ -7,10 +7,16 @@
 }
 
 .main-and-footer > div {
-    background-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: color-mix(in srgb, var(--color-background) 80%, transparent) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .main-and-footer > div {
+    }
 }
 
 #main {
     background: transparent;
+    box-shadow: none;
 }
 </style>
