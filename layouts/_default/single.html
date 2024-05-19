@@ -1,5 +1,7 @@
 {{ define "main" }}
-  <main id="main" class="single {{ if $.Param "section" }}wide{{ end }}">
+{{ $lang := cond (not ($.Param "lang")) $.Site.Language ($.Param "lang") }}
+
+  <main id="main" class="single {{ if $.Param "section" }}wide{{ end }}" lang="{{ $lang }}">
 
     <h1>
       {{ .Title }}
