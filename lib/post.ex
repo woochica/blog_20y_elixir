@@ -90,8 +90,7 @@ defmodule Blog20y.Post do
   end
 
   def mixtape_cover(image) do
-    # TODO move content path to markup
-    image_src = @site_url <> "/content/" <> image
+    image_src = @site_url <> "/" <> image
 
     ~s"""
     <figure><img src="#{image_src}" alt="Mixtape cover" /></figure>
@@ -114,7 +113,7 @@ defmodule Blog20y.Post do
     <hr>
     <p>I moved away from streaming services and <a href="#{@site_url}/journal/bandcamp/">started to purchase music on Bandcamp</a>.
     If you can also afford it, please support the artists. If you wish to listen to the mixtape,
-    <a href="#{@files_url}#{file}">you can grab the files</a> too.</p>
+    <a href="#{@files_url}/#{file}">you can grab the files</a> too.</p>
     """
   end
 end
