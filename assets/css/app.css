@@ -1,0 +1,99 @@
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+:root {
+  --color-white: #ffffff;
+  --color-gray: #e6e6ea;
+  --color-dark: #19171a;
+  --color-dark-gray: #232327;
+  --color-sun: #ffbd00;
+  --color-water: #1CC5DC;
+  --color-deep-water: #023e8a;
+  --color-lime: #2aca69;
+  --color-purple: #6060ff;
+  --color-lila: #ce33dd;
+  --color-lava: #c1121f;
+}
+
+body {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-dark);
+  --color-background-secondary: var(--color-gray);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-background: var(--color-dark);
+    --color-foreground: var(--color-white);
+    --color-background-secondary: var(--color-dark-gray);
+  }
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: .1em solid var(--color-foreground);
+}
+
+td, th {
+  border: .1em solid var(--color-foreground);
+  padding: .5em;
+}
+
+@media (prefers-color-scheme: dark) {
+  a:link {
+    color: var(--color-purple);
+  }
+
+  a:active {
+    color: var(--color-lava);
+  }
+
+  a:visited {
+    color: var(--color-lila);
+  }
+}
+
+h1 {
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+footer {
+  text-align: right;
+}
+
+/* Youtube embeds */
+
+.youtube-video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-video-container::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.youtube-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

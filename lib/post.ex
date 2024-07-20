@@ -1,0 +1,120 @@
+defmodule Blog20y.Post do
+  require Logger
+  require YamlFrontMatter
+
+  @enforce_keys [:slug, :title, :excerpt, :body, :publishdate, :path]
+  defstruct [
+    :slug,
+    :title,
+    :excerpt,
+    :body,
+    :tags,
+    :publishdate,
+    :path,
+    :lang,
+    :draft,
+    :lastmod,
+    :toc,
+    :toclevels,
+    :section
+  ]
+
+  @site_url Application.fetch_env!(:blog_20y, :site_url)
+  @files_url Application.fetch_env!(:blog_20y, :files_url)
+
+  def build(filename, attrs, body) do
+    Logger.debug("Building post: " <> attrs[:title])
+
+    # Remove "content"
+    path = filename |> Path.rootname() |> Path.split() |> Enum.drop(1) |> Path.join()
+
+    # Add suffix
+    [slug] = path |> Path.split() |> Enum.take(-1)
+    path = path <> "/index.html"
+
+    # Parse code
+    # TODO eventually fix links in hte posts to contain the leading slash
+    new_body = String.replace(body, "{{< siteurl >}}", @site_url <> "/")
+
+    [excerpt | _tail] = String.split(new_body, "<!--more-->")
+
+    struct!(
+      __MODULE__,
+      [body: new_body, slug: slug, path: path, excerpt: excerpt] ++ Map.to_list(attrs)
+    )
+  end
+
+  def parse(path, contents) do
+    Logger.debug("Parsing post: " <> path)
+    {raw_attrs, body} = YamlFrontMatter.parse!(contents)
+
+    attrs =
+      raw_attrs
+      |> Enum.map(fn {key, value} -> {String.to_existing_atom(key), value} end)
+      |> Map.new()
+
+    publishdate =
+      case DateTime.from_iso8601(attrs[:publishdate]) do
+        {:ok, publishdate, _} ->
+          DateTime.to_date(publishdate)
+
+        {:error, _} ->
+          Date.from_iso8601!(attrs[:publishdate])
+      end
+
+    lastmod =
+      if Map.has_key?(attrs, :lastmod) do
+        case DateTime.from_iso8601(attrs[:lastmod]) do
+          {:ok, lastmod, _} ->
+            DateTime.to_date(lastmod)
+
+          {:error, _} ->
+            Date.from_iso8601!(attrs[:lastmod])
+        end
+      else
+        publishdate
+      end
+
+    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod]) |> Map.new(), body}
+  end
+
+  def convert(_extname, body, _attrs, opts) do
+    Logger.debug("Converting raw body to HTML")
+
+    earmark_opts =
+      Keyword.get(opts, :earmark_options, %Earmark.Options{breaks: true, inner_html: false})
+
+    body
+    |> EEx.eval_string(mixtape_cover: &mixtape_cover/1, mixtape_disclaimer: &mixtape_disclaimer/1)
+    |> Earmark.as_html!(earmark_opts)
+  end
+
+  def mixtape_cover(image) do
+    # TODO move content path to markup
+    image_src = @site_url <> "/content/" <> image
+
+    ~s"""
+    <figure><img src="#{image_src}" alt="Mixtape cover" /></figure>
+    <style>
+    article {
+        background-image: url(#{image_src});
+        background-blend-mode: color-burn;
+    }
+
+    article > div {
+      padding: 1em;
+      background-color: color-mix(in srgb, var(--color-background) 80%, transparent) !important;
+    }
+    </style>
+    """
+  end
+
+  def mixtape_disclaimer(file) do
+    """
+    <hr>
+    <p>I moved away from streaming services and <a href="#{@site_url}/journal/bandcamp/">started to purchase music on Bandcamp</a>.
+    If you can also afford it, please support the artists. If you wish to listen to the mixtape,
+    <a href="#{@files_url}#{file}">you can grab the files</a> too.</p>
+    """
+  end
+end

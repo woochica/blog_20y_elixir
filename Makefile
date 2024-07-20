@@ -1,11 +1,11 @@
 all: build deploy
 
 build:
-	HUGO_ENV=production hugo --gc --minify
+	mix site.build
 
 run:
-	hugo server -D &
-	open http://localhost:1313/~slink/
+	mix site.build
+	open public/index.html
 
 deploy:
 	lftp -f upload.x
