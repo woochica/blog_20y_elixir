@@ -13,7 +13,7 @@ config :tailwind,
   ]
 
 config :blog_20y,
-  site_url: "file:///home/slink/slinkdrive/gabor/Documents-current/20y.hu/public",
+  site_url: "https://20y.hu/~slink",
   files_url: "https://20y.hu",
   title: "20Y",
   rss_post_limit: 20,
