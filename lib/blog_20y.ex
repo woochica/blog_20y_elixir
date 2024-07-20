@@ -85,8 +85,8 @@ defmodule Blog20y do
         <title><%= @title %></title>
         <link rel="stylesheet" href={site_url() <> "/assets/app.css"} />
         <link href={site_url() <> "/index.xml" } rel="alternate" type="application/rss+xml" title={site_title()} />
-        <link rel="icon" type="image/png" sizes="32x32" href="{site_url()}favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{site_url()}favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href={site_url() <> "/favicon-32x32.png"}>
+        <link rel="icon" type="image/png" sizes="16x16" href={site_url() <> "/favicon-16x16.png"}>
       </head>
       <body>
         <%= render_slot(@inner_block) %>
@@ -166,7 +166,7 @@ defmodule Blog20y do
   end
 
   def build() do
-    Logger.info("Clear output directory")
+    Logger.info("Clearing output directory")
     File.rm_rf!(@output_dir)
     File.mkdir_p!(@output_dir)
 
@@ -175,7 +175,10 @@ defmodule Blog20y do
 
     Logger.info("Copying static files")
     File.cp_r!("static/content", @output_dir <> "/content")
-    File.cp_r!("static/mixtapes", @output_dir <> "/content")
+    File.cp_r!("static/mixtapes", @output_dir <> "/mixtapes")
+    File.cp_r!("static/favicon.ico", @output_dir <> "/favicon.ico")
+    File.cp_r!("static/favicon-16x16.png", @output_dir <> "/favicon-16x16.png")
+    File.cp_r!("static/favicon-32x32.png", @output_dir <> "/favicon-32x32.png")
 
     Logger.info("Building sitemap")
     write_file("sitemap.xml", sitemap(pages ++ posts))
