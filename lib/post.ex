@@ -32,15 +32,11 @@ defmodule Blog20y.Post do
     [slug] = path |> Path.split() |> Enum.take(-1)
     path = path <> "/index.html"
 
-    # Parse code
-    # TODO eventually fix links in hte posts to contain the leading slash
-    new_body = String.replace(body, "{{< siteurl >}}", @site_url <> "/")
-
-    [excerpt | _tail] = String.split(new_body, "<!--more-->")
+    [excerpt | _tail] = String.split(body, "<!--more-->")
 
     struct!(
       __MODULE__,
-      [body: new_body, slug: slug, path: path, excerpt: excerpt] ++ Map.to_list(attrs)
+      [body: body, slug: slug, path: path, excerpt: excerpt] ++ Map.to_list(attrs)
     )
   end
 
@@ -85,7 +81,11 @@ defmodule Blog20y.Post do
       Keyword.get(opts, :earmark_options, %Earmark.Options{breaks: true, inner_html: false})
 
     body
-    |> EEx.eval_string(mixtape_cover: &mixtape_cover/1, mixtape_disclaimer: &mixtape_disclaimer/1)
+    |> EEx.eval_string(
+      mixtape_cover: &mixtape_cover/1,
+      mixtape_disclaimer: &mixtape_disclaimer/1,
+      site_url: @site_url
+    )
     |> Earmark.as_html!(earmark_opts)
   end
 

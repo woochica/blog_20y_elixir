@@ -4,7 +4,6 @@ defmodule Blog20y.Page do
 
   @enforce_keys [:slug, :title, :body, :path, :lastmod]
   defstruct [:slug, :title, :body, :path, :lastmod, :toc]
-
   @site_url Application.fetch_env!(:blog_20y, :site_url)
 
   def build(filename, attrs, body) do
@@ -17,11 +16,7 @@ defmodule Blog20y.Page do
     [slug] = path |> Path.split() |> Enum.take(-1)
     path = path <> "/index.html"
 
-    # Parse code
-    # TODO eventually fix links in hte posts to contain the leading slash
-    new_body = String.replace(body, "{{< siteurl >}}", @site_url <> "/")
-
-    struct!(__MODULE__, [body: new_body, slug: slug, path: path] ++ Map.to_list(attrs))
+    struct!(__MODULE__, [body: body, slug: slug, path: path] ++ Map.to_list(attrs))
   end
 
   def parse(path, contents) do
@@ -51,6 +46,6 @@ defmodule Blog20y.Page do
     earmark_opts =
       Keyword.get(opts, :earmark_options, %Earmark.Options{breaks: true, inner_html: false})
 
-    body |> Earmark.as_html!(earmark_opts)
+    body |> EEx.eval_string(site_url: @site_url) |> Earmark.as_html!(earmark_opts)
   end
 end
