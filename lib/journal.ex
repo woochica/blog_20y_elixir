@@ -9,6 +9,8 @@ defmodule Blog20y.Journal do
     as: :posts
 
   @posts Enum.sort_by(@posts, & &1.publishdate, {:desc, Date})
+  @tags List.foldl(@posts, [], fn post, acc -> acc ++ post.tags end) |> List.flatten()
 
   def all_posts, do: @posts
+  def all_tags, do: @tags
 end

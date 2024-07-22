@@ -33,7 +33,12 @@ defmodule Blog20y do
         <% else %>
         This entry was published on <%= format_post_date(@post.publishdate) %>.
         <% end %>
-        It is filed under the <i><%= @post.tags |> Enum.join(", ") %></i> folder(s).
+        It is filed under the <%=
+        @post.tags |>
+          Enum.map(fn tag -> "<a href=\"#{site_url()}/#{Slug.slugify(tag)}/index.html\">#{tag}</a>" end) |>
+          Enum.join(" and ")
+          |> raw
+        %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
       </footer>
       </div>
       </article>
@@ -70,6 +75,21 @@ defmodule Blog20y do
       <ul>
         <li :for={page <- @pages}>
           <a href={page.path}><%= page.title %></a>
+        </li>
+      </ul>
+    </.layout>
+    """
+  end
+
+  def tag_index(assigns) do
+    ~H"""
+    <.layout
+    title={"#{@tag} — #{site_title()}"}
+    >
+      <h1 id="title"><%= @tag %></h1>
+      <ul>
+        <li :for={post <- @posts}>
+          <a href={site_url() <> "/" <> post.path}><%= post.title %></a>
         </li>
       </ul>
     </.layout>
@@ -165,6 +185,24 @@ defmodule Blog20y do
     |> XmlBuilder.generate()
   end
 
+  def build_tags() do
+    Logger.info("Building tag indexes")
+
+    all_posts = Blog20y.Journal.all_posts()
+    all_tags = Blog20y.Journal.all_tags()
+
+    Enum.map(all_tags, fn tag ->
+      posts = Enum.filter(all_posts, fn post -> tag in post.tags end)
+      render_file(
+        Slug.slugify(tag) <> "/index.html",
+        tag_index(%{
+          tag: tag,
+          posts: posts
+        })
+      )
+    end)
+  end
+
   def build() do
     Logger.info("Clearing output directory")
     File.rm_rf!(@output_dir)
@@ -222,6 +260,8 @@ defmodule Blog20y do
   def render_file(path, rendered) do
     safe = Phoenix.HTML.Safe.to_iodata(rendered)
     output = Path.join([@output_dir, path])
+    dir = Path.dirname(output)
+    File.mkdir_p!(dir)
     File.write!(output, safe)
   end
 end
