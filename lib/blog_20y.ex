@@ -237,6 +237,8 @@ defmodule Blog20y do
       render_file(post.path, post(%{post: post}))
     end
 
+    build_tags()
+
     Logger.info("Building pages")
 
     for page <- pages do
