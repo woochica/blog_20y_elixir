@@ -13,7 +13,11 @@ config :tailwind,
   ]
 
 config :blog_20y,
-  site_url: "https://20y.hu/~slink",
+  site_url:
+    (case Mix.env() do
+       :prod -> "https://20y.hu/~slink"
+       :dev -> Path.expand("public")
+     end),
   files_url: "https://20y.hu",
   title: "20Y",
   rss_post_limit: 20,
