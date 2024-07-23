@@ -17,10 +17,20 @@ defmodule Blog20y do
     @site_url
   end
 
+  def tags(tags) do
+    tags
+    |> Enum.map(fn tag ->
+      link = "#{site_url()}/#{Slug.slugify(tag)}/index.html"
+      ~s(<a href="#{link}">#{tag}</a>)
+    end)
+    |> Enum.join(" and ")
+    |> raw
+  end
+
   def post(assigns) do
     ~H"""
     <.layout
-    title={"#{@post.title} — #{site_title()}"}
+    title={~s(#{@post.title} — #{site_title()})}
     >
       <article>
       <div>
@@ -33,12 +43,7 @@ defmodule Blog20y do
         <% else %>
         This entry was published on <%= format_post_date(@post.publishdate) %>.
         <% end %>
-        It is filed under the <%=
-        @post.tags |>
-          Enum.map(fn tag -> "<a href=\"#{site_url()}/#{Slug.slugify(tag)}/index.html\">#{tag}</a>" end) |>
-          Enum.join(" and ")
-          |> raw
-        %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
+        It is filed under the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
       </footer>
       </div>
       </article>
@@ -193,6 +198,7 @@ defmodule Blog20y do
 
     Enum.map(all_tags, fn tag ->
       posts = Enum.filter(all_posts, fn post -> tag in post.tags end)
+
       render_file(
         Slug.slugify(tag) <> "/index.html",
         tag_index(%{
