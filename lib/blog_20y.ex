@@ -81,6 +81,9 @@ defmodule Blog20y do
         <li :for={page <- @pages}>
           <a href={page.path}><%= page.title %></a>
         </li>
+        <li>
+          <a href={site_url() <> "/bits.html"}>Interesting bits</a>
+        </li>
       </ul>
     </.layout>
     """
