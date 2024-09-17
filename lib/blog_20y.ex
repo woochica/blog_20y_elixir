@@ -243,6 +243,7 @@ defmodule Blog20y do
         File.mkdir_p!(Path.join([@output_dir, dir]))
       end
 
+      Logger.debug("Rendering post: " <> post.path)
       render_file(post.path, post(%{post: post}))
     end
 
