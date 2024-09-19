@@ -165,9 +165,9 @@ defmodule Blog20y do
            {:item,
             [
               {:title, post.title},
-              {:link, @site_url <> post.path},
+              {:link, @site_url <> "/" <> post.path},
               {:pubDate, format_rss_date(post.publishdate)},
-              {:guid, @site_url <> post.path},
+              {:guid, @site_url <> "/" <> post.path},
               # add excerpt
               {:description, HtmlEntities.encode(post.excerpt)}
             ]}
