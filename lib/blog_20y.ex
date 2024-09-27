@@ -213,10 +213,6 @@ defmodule Blog20y do
   end
 
   def build() do
-    Logger.info("Clearing output directory")
-    File.rm_rf!(@output_dir)
-    File.mkdir_p!(@output_dir)
-
     posts = Blog20y.Journal.published_posts()
     pages = Blog20y.Pages.all_pages()
 
