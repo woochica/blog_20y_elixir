@@ -217,7 +217,7 @@ defmodule Blog20y do
     File.rm_rf!(@output_dir)
     File.mkdir_p!(@output_dir)
 
-    posts = Blog20y.Journal.all_posts()
+    posts = Blog20y.Journal.published_posts()
     pages = Blog20y.Pages.all_pages()
 
     Logger.info("Copying static files")
