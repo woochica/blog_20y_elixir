@@ -196,11 +196,11 @@ defmodule Blog20y do
   def build_tags() do
     Logger.info("Building tag indexes")
 
-    all_posts = Blog20y.Journal.all_posts()
+    posts = Blog20y.Journal.published_posts()
     all_tags = Blog20y.Journal.all_tags()
 
     Enum.map(all_tags, fn tag ->
-      posts = Enum.filter(all_posts, fn post -> tag in post.tags end)
+      posts = Enum.filter(posts, fn post -> tag in post.tags end)
 
       render_file(
         Slug.slugify(tag) <> "/index.html",
