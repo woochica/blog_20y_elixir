@@ -71,7 +71,15 @@ defmodule Blog20y.Post do
         publishdate
       end
 
-    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod]) |> Map.new(), body}
+    draft =
+      if Map.has_key?(attrs, :draft) do
+        attrs[:draft]
+      else
+        false
+      end
+
+    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod, draft: draft])
+     |> Map.new(), body}
   end
 
   def convert(_extname, body, _attrs, opts) do
