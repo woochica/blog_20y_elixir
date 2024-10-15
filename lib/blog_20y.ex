@@ -1,5 +1,5 @@
 defmodule Blog20y do
-  require XmlBuilder
+  alias XmlBuilder
   require Logger
   use Phoenix.Component
   import Phoenix.HTML
