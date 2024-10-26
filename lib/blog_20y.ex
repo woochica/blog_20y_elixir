@@ -43,7 +43,7 @@ defmodule Blog20y do
         <% else %>
         This entry was published on <%= format_post_date(@post.publishdate) %>.
         <% end %>
-        It is filed under the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
+        It's filed in the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
       </footer>
       </div>
       </article>
