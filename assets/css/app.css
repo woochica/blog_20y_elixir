@@ -72,6 +72,10 @@ h1 {
   font-style: normal;
 }
 
+hr {
+    margin-top: 2em;
+}
+
 footer {
   text-align: right;
 }
