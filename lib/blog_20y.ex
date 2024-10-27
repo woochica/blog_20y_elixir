@@ -20,7 +20,13 @@ defmodule Blog20y do
   def tags(tags) do
     tags
     |> Enum.map(fn tag ->
-      link = "#{site_url()}/#{Slug.slugify(tag)}/index.html"
+      link =
+        if tag == "Mixtape" do
+          ~s(#{site_url()}/mixtapes/index.html)
+        else
+          ~s(#{site_url()}/#{Slug.slugify(tag)}/index.html)
+        end
+
       ~s(<a href="#{link}">#{tag}</a>)
     end)
     |> Enum.join(" and ")
