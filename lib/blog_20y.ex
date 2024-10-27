@@ -84,6 +84,9 @@ defmodule Blog20y do
         <li>
           <a href={site_url() <> "/bits.html"}>Interesting bits</a>
         </li>
+        <li>
+          <a href={site_url() <> "/mixtapes/"}>Mixtapes</a>
+        </li>
       </ul>
     </.layout>
     """
