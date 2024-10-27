@@ -7,7 +7,7 @@ defmodule Blog20y.Page do
   @site_url Application.fetch_env!(:blog_20y, :site_url)
 
   def build(filename, attrs, body) do
-    Logger.debug("Building page: " <> attrs[:title])
+    Logger.debug(filename <> ": building page")
 
     # Remove "content"
     path = filename |> Path.rootname() |> Path.split() |> Enum.drop(1) |> Path.join()
@@ -20,7 +20,7 @@ defmodule Blog20y.Page do
   end
 
   def parse(path, contents) do
-    Logger.debug("Parsing page: " <> path)
+    Logger.debug(path <> ": parsing page")
     {raw_attrs, body} = YamlFrontMatter.parse!(contents)
 
     attrs =
@@ -40,8 +40,8 @@ defmodule Blog20y.Page do
     {%{attrs | lastmod: lastmod}, body}
   end
 
-  def convert(_extname, body, _attrs, opts) do
-    Logger.debug("Converting raw body to HTML")
+  def convert(extname, body, _attrs, opts) do
+    Logger.debug(extname <> ": converting raw body to HTML")
 
     earmark_opts =
       Keyword.get(opts, :earmark_options, %Earmark.Options{breaks: true, inner_html: false})

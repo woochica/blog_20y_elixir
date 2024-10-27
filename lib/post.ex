@@ -23,7 +23,7 @@ defmodule Blog20y.Post do
   @files_url Application.fetch_env!(:blog_20y, :files_url)
 
   def build(filename, attrs, body) do
-    Logger.debug("Building post: " <> attrs[:title])
+    Logger.debug(filename <> ": building post")
 
     # Remove "content"
     path = filename |> Path.rootname() |> Path.split() |> Enum.drop(1) |> Path.join()
@@ -41,7 +41,7 @@ defmodule Blog20y.Post do
   end
 
   def parse(path, contents) do
-    Logger.debug("Parsing post: " <> path)
+    Logger.debug(path <> ": parsing post")
     {raw_attrs, body} = YamlFrontMatter.parse!(contents)
 
     attrs =
@@ -82,19 +82,30 @@ defmodule Blog20y.Post do
      |> Map.new(), body}
   end
 
-  def convert(_extname, body, _attrs, opts) do
-    Logger.debug("Converting raw body to HTML")
+  def convert(extname, body, _attrs, opts) do
+    Logger.debug(extname <> ": converting raw body to HTML")
 
     earmark_opts =
       Keyword.get(opts, :earmark_options, %Earmark.Options{breaks: true, inner_html: false})
 
-    body
-    |> EEx.eval_string(
-      mixtape_cover: &mixtape_cover/1,
-      mixtape_disclaimer: &mixtape_disclaimer/1,
-      site_url: @site_url
-    )
-    |> Earmark.as_html!(earmark_opts)
+    result =
+      body
+      |> EEx.eval_string(
+        mixtape_cover: &mixtape_cover/1,
+        mixtape_disclaimer: &mixtape_disclaimer/1,
+        site_url: @site_url
+      )
+      |> Earmark.as_html(earmark_opts)
+
+    case result do
+      {:ok, html_doc, _} ->
+        html_doc
+
+      {:error, html_doc, error_messages} ->
+        Logger.warning(extname <> ": confusing markup encountered")
+        Logger.warning(error_messages)
+        html_doc
+    end
   end
 
   def mixtape_cover(image) do

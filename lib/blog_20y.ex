@@ -169,7 +169,7 @@ defmodule Blog20y do
           %{href: "#{@site_url}/index.xml", rel: "self", type: "application/rss+xml"}}
        ] ++
          for post <- Enum.take(posts, @rss_post_limit) do
-           Logger.debug("Add RSS entry for " <> post.path)
+           Logger.debug(post.path <> ": adding RSS entry")
 
            {:item,
             [
@@ -248,7 +248,7 @@ defmodule Blog20y do
         File.mkdir_p!(Path.join([@output_dir, dir]))
       end
 
-      Logger.debug("Rendering post: " <> post.path)
+      Logger.debug(post.path <> ": rendering post")
       render_file(post.path, post(%{post: post}))
     end
 
