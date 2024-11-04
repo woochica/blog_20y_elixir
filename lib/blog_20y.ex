@@ -44,10 +44,9 @@ defmodule Blog20y do
       <%= raw @post.body %>
       <hr />
       <footer>
+        This entry was published on <%= format_post_date(@post.publishdate) %> in <a href={site_url()}>20Y</a>.
         <%= if @post.lastmod != @post.publishdate do %>
-        This entry was last updated on <%= @post.lastmod %> (originally published on <%= @post.publishdate %>).
-        <% else %>
-        This entry was published on <%= format_post_date(@post.publishdate) %>.
+        It was last updated on <%= format_post_date(@post.lastmod) %>.
         <% end %>
         It's filed in the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
       </footer>
@@ -76,7 +75,7 @@ defmodule Blog20y do
     title={site_title()}
     >
       <h1 id="title"><%= site_title() %></h1>
-      <p>Here are some things I've been thinking about recently:</p>
+      <p>Hey! Here are some of the things I wished to share with you:</p>
       <ul>
         <li :for={post <- @posts}>
           <a href={post.path}><%= post.title %></a>
