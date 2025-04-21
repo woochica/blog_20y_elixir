@@ -18,6 +18,8 @@
   --color-purple: #6060ff;
   --color-lila: #ce33dd;
   --color-lava: #c1121f;
+  --body-margin-x: 1em;
+  --body-margin-y: .5em;
 }
 
 body {
@@ -26,6 +28,7 @@ body {
   --color-background-secondary: var(--color-gray);
   background-color: var(--color-background);
   color: var(--color-foreground);
+  margin: var(--body-margin-y) var(--body-margin-x);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,8 +109,20 @@ footer {
   height: 100%;
 }
 
+/* Post */
+
 .post-meta {
   opacity: .5;
   font-family: monospace;
   margin-left: 1em;
+}
+
+.post-article {
+  min-height: calc(100vh - 2 * var(--body-margin-y));
+  display: flex;
+  flex-direction: column;
+}
+
+.post-content {
+  flex-grow: 1;
 }

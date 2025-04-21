@@ -39,9 +39,12 @@ defmodule Blog20y do
     title={~s(#{@post.title} — #{site_title()})}
     >
       <article>
-      <div>
+      <div class="post-article">
+      <div class="post-content">
       <h1><%= raw @post.title %></h1>
       <%= raw @post.body %>
+      </div>
+      <div class="post-footer">
       <hr />
       <footer>
         This entry was published on <%= format_post_date(@post.publishdate) %> in <a href={site_url()}>20Y</a>.
@@ -50,6 +53,7 @@ defmodule Blog20y do
         <% end %>
         It's filed in the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
       </footer>
+      </div>
       </div>
       </article>
     </.layout>
@@ -123,7 +127,7 @@ defmodule Blog20y do
       <head>
         <meta charset="utf-8" />
         <title><%= @title %></title>
-        <link rel="stylesheet" href={site_url() <> "/assets/app.css?202504212157"} />
+        <link rel="stylesheet" href={site_url() <> "/assets/app.css?202504212237"} />
         <link href={site_url() <> "/index.xml" } rel="alternate" type="application/rss+xml" title={site_title()} />
         <link rel="icon" type="image/png" sizes="32x32" href={site_url() <> "/favicon-32x32.png"}>
         <link rel="icon" type="image/png" sizes="16x16" href={site_url() <> "/favicon-16x16.png"}>
