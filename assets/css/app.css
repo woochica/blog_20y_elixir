@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
 @tailwind base;
 @tailwind components;
@@ -6,21 +8,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
-:root {
-  --color-white: #ffffff;
-  --color-gray: #e6e6ea;
-  --color-dark: #19171a;
-  --color-dark-gray: #232327;
-  --color-sun: #ffbd00;
-  --color-water: #1CC5DC;
-  --color-deep-water: #023e8a;
-  --color-lime: #2aca69;
-  --color-purple: #6060ff;
-  --color-lila: #ce33dd;
-  --color-lava: #c1121f;
-  --body-margin-x: 1em;
-  --body-margin-y: .5em;
-}
+@import url('vars.css');
+
+@import url('gutenberg.css');
 
 body {
   --color-background: var(--color-white);
@@ -28,7 +18,7 @@ body {
   --color-background-secondary: var(--color-gray);
   background-color: var(--color-background);
   color: var(--color-foreground);
-  margin: var(--body-margin-y) var(--body-margin-x);
+  margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,12 +45,20 @@ td, th {
   padding: .5em;
 }
 
-p, li {
-    line-height: 140%;
+a:link, a:link:hover {
+  color: blue;
+}
+
+a:active {
+  color: red;
+}
+
+a:visited, a:visited:hover {
+  color: purple;
 }
 
 @media (prefers-color-scheme: dark) {
-  a:link {
+  a:link, a:link:hover {
     color: var(--color-purple);
   }
 
@@ -68,7 +66,7 @@ p, li {
     color: var(--color-lava);
   }
 
-  a:visited {
+  a:visited, a:visited:hover {
     color: var(--color-lila);
   }
 }
@@ -77,14 +75,8 @@ h1 {
   font-family: "Rubik Mono One", monospace;
   font-weight: 400;
   font-style: normal;
-}
-
-hr {
-    margin-top: 2em;
-}
-
-footer {
-  text-align: right;
+  word-spacing: -.3em;
+  letter-spacing: -.05em;
 }
 
 /* Youtube embeds */
@@ -115,12 +107,17 @@ footer {
   opacity: .5;
   font-family: monospace;
   margin-left: 1em;
+  font-size: 70%;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .post-article {
-  min-height: calc(100vh - 2 * var(--body-margin-y));
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  max-width: 100%;
 }
 
 .post-content {
