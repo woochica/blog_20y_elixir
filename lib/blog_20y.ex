@@ -47,7 +47,7 @@ defmodule Blog20y do
       <div class="post-footer">
       <hr />
       <footer>
-        This entry was published on <%= format_post_date(@post.publishdate) %> in <a href={site_url()}>20Y</a>.
+        This entry was published on <%= format_post_date(@post.publishdate) %> in <a href={site_url()}>20Y</a> by Gabor Torok.
         <%= if @post.lastmod != @post.publishdate do %>
         It was last updated on <%= format_post_date(@post.lastmod) %>.
         <% end %>
