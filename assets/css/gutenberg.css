@@ -140,18 +140,6 @@ samp {
   font-family: monospace, monospace;
 }
 
-code {
-  padding: 26px;
-  padding: 1.625rem;
-  display: block;
-}
-@media screen and (min-width: 40em) {
-  code {
-    padding: 31px;
-    padding: 1.722222222222222rem;
-  }
-}
-
 details {
   display: block;
 }
@@ -431,11 +419,6 @@ blockquote {
   blockquote {
     padding-left: 2rem;
   }
-}
-
-cite {
-  display: block;
-  font-style: normal;
 }
 
 figure blockquote {

@@ -71,7 +71,7 @@ a:visited, a:visited:hover {
   }
 }
 
-h1 {
+h1,h2,h3 {
   font-family: "Rubik Mono One", monospace;
   font-weight: 400;
   font-style: normal;
@@ -103,7 +103,7 @@ h1 {
 
 /* Post */
 
-.post-meta {
+.post-meta, .timestamp {
   opacity: .5;
   font-family: monospace;
   margin-left: 1em;
@@ -122,4 +122,5 @@ h1 {
 
 .post-content {
   flex-grow: 1;
+  margin-bottom: 0;
 }
