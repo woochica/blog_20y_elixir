@@ -123,7 +123,7 @@ defmodule Blog20y do
       <head>
         <meta charset="utf-8" />
         <title><%= @title %></title>
-        <link rel="stylesheet" href={site_url() <> "/assets/app.css"} />
+        <link rel="stylesheet" href={site_url() <> "/assets/app.css?202504212157"} />
         <link href={site_url() <> "/index.xml" } rel="alternate" type="application/rss+xml" title={site_title()} />
         <link rel="icon" type="image/png" sizes="32x32" href={site_url() <> "/favicon-32x32.png"}>
         <link rel="icon" type="image/png" sizes="16x16" href={site_url() <> "/favicon-16x16.png"}>
