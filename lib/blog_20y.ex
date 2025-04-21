@@ -79,7 +79,8 @@ defmodule Blog20y do
     title={site_title()}
     >
       <h1 id="title"><%= site_title() %></h1>
-      <p>Hey! Here are some of the things I wished to share with you:</p>
+      <p>Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, ayurvedic kitchen, and some personal reflections of my life. I also love to dig music and share my findings as mixtapes.</p>
+      <hr/>
       <ul>
         <li :for={post <- @posts}>
           <a href={post.path}><%= post.title %></a>
@@ -89,6 +90,7 @@ defmodule Blog20y do
           </span>
         </li>
       </ul>
+      <hr/>
       <p>Explore more:</p>
       <ul>
         <li :for={page <- @pages}>
