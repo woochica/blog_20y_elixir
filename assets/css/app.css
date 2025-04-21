@@ -105,3 +105,9 @@ footer {
   width: 100%;
   height: 100%;
 }
+
+.post-meta {
+  opacity: .5;
+  font-family: monospace;
+  margin-left: 1em;
+}

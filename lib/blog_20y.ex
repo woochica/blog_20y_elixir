@@ -79,6 +79,10 @@ defmodule Blog20y do
       <ul>
         <li :for={post <- @posts}>
           <a href={post.path}><%= post.title %></a>
+          <span class="post-meta">
+          <%= post.tags |> (Enum.map (fn tag -> ~s(@#{tag}) end)) |> Enum.join(", ") %>
+          — <%= format_post_date(post.publishdate) %>
+          </span>
         </li>
       </ul>
       <p>Explore more:</p>
