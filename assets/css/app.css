@@ -124,3 +124,15 @@ h1,h2,h3 {
   flex-grow: 1;
   margin-bottom: 0;
 }
+
+
+/* Resume */
+
+.resume th, .resume td {
+  vertical-align: top;
+}
+
+.resume th, .resume td, .resume td * {
+  font-size: 13px;
+  line-height: 22px!important;
+}
