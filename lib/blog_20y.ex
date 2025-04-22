@@ -128,6 +128,7 @@ defmodule Blog20y do
     <html>
       <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title><%= @title %></title>
         <link rel="stylesheet" href={site_url() <> "/assets/app.css?202504212237"} />
         <link href={site_url() <> "/index.xml" } rel="alternate" type="application/rss+xml" title={site_title()} />
