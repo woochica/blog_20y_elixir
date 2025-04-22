@@ -80,7 +80,9 @@ defmodule Blog20y do
     >
     <main>
       <h1 id="title"><%= site_title() %></h1>
-      <p>Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, ayurvedic kitchen, and some personal reflections of my life. I also love to dig music and share my findings as mixtapes.</p>
+      <p>
+      Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, my vegetarian kitchen, and I also write about some personal reflections on my life. I also love to dig music and share my findings as mixtapes.
+    </p>
       <hr/>
       <ul>
         <li :for={post <- @posts}>
