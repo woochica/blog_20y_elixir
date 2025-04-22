@@ -357,7 +357,7 @@ hr {
   margin-bottom: 3.25rem;
   box-sizing: content-box;
   border: 0;
-  color: var(--color-dark);
+  color: var(--color-foreground);
   display: block;
   height: 26px;
   height: 1.625rem;
@@ -365,7 +365,7 @@ hr {
   margin-left: auto;
   background-size: 100% 26px;
   background-size: 100% 1.625rem;
-  background-image: linear-gradient(to bottom, transparent 1px, transparent 11px, var(--color-dark) 11px, var(--color-dark) 15px, transparent 15px, transparent 26px);
+  background-image: linear-gradient(to bottom, transparent 1px, transparent 11px, var(--color-foreground) 11px, var(--color-foreground) 15px, transparent 15px, transparent 26px);
   width: 100px;
 }
 @media screen and (min-width: 640px) {
@@ -382,7 +382,7 @@ hr {
   hr {
     background-size: 100% 31px;
     background-size: 100% 1.722222222222222rem;
-    background-image: linear-gradient(to bottom, transparent 1px, transparent 13.5px, var(--color-dark) 13.5px, var(--color-dark) 17.5px, transparent 17.5px, transparent 31px);
+    background-image: linear-gradient(to bottom, transparent 1px, transparent 13.5px, var(--color-foreground) 13.5px, var(--color-foreground) 17.5px, transparent 17.5px, transparent 31px);
   }
 }
 

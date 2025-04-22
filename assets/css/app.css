@@ -13,20 +13,9 @@
 @import url('gutenberg.css');
 
 body {
-  --color-background: var(--color-white);
-  --color-foreground: var(--color-dark);
-  --color-background-secondary: var(--color-gray);
   background-color: var(--color-background);
   color: var(--color-foreground);
   margin: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    --color-background: var(--color-dark);
-    --color-foreground: var(--color-white);
-    --color-background-secondary: var(--color-dark-gray);
-  }
 }
 
 img, video {

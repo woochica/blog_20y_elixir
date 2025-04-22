@@ -10,4 +10,13 @@
   --color-purple: #6060ff;
   --color-lila: #ce33dd;
   --color-lava: #c1121f;
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-dark);
+  --color-background-secondary: var(--color-gray);
+
+  @media (prefers-color-scheme: dark) {
+    --color-background: var(--color-dark);
+    --color-foreground: var(--color-white);
+    --color-background-secondary: var(--color-dark-gray);
+  }
 }
