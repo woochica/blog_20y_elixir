@@ -1,4 +1,5 @@
 defmodule Blog20y.Post do
+  alias Blog20y.Processor
   require Logger
   require YamlFrontMatter
 
@@ -78,7 +79,21 @@ defmodule Blog20y.Post do
         false
       end
 
-    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod, draft: draft])
+    # Parse first-level headings if toc is enabled
+    toc =
+      if attrs[:toc] do
+        result = Earmark.Parser.as_ast(body)
+
+        case result do
+          {:ok, ast, _} ->
+            for node <- ast, is_heading_node?(node), do: to_toc_heading(node)
+
+          {:error, _, error_messages} ->
+            Logger.warning(error_messages)
+        end
+      end
+
+    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod, draft: draft, toc: toc])
      |> Map.new(), body}
   end
 
@@ -107,6 +122,12 @@ defmodule Blog20y.Post do
         html_doc
     end
   end
+
+  defp is_heading_node?({"h2", [], [_text], %{}}), do: true
+  defp is_heading_node?(_), do: nil
+
+  defp to_toc_heading({"h2", [], [text], %{}}), do: {text, Processor.slugify(text)}
+  defp to_toc_heading(_), do: nil
 
   def mixtape_cover(image) do
     image_src = @site_url <> "/" <> image

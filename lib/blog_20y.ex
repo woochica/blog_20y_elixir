@@ -42,6 +42,13 @@ defmodule Blog20y do
       <div class="post-article">
       <div class="post-content">
       <h1><%= raw @post.title %></h1>
+      <%= if @post.toc do %>
+      <nav>
+      <ol>
+        <li :for={{heading, slug} <- @post.toc}><a href={"#" <> slug}><%= heading %></a></li>
+      </ol>
+      </nav>
+      <% end %>
       <%= raw @post.body %>
       </div>
       <div class="post-footer">
