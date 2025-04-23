@@ -26,11 +26,11 @@ img, video {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  border: .1em solid var(--color-foreground);
+  border: .1em solid var(--color-gray);
 }
 
 td, th {
-  border: .1em solid var(--color-foreground);
+  border: .1em solid var(--color-gray);
   padding: .5em;
 }
 
@@ -119,9 +119,23 @@ h1,h2,h3 {
 
 .resume th, .resume td {
   vertical-align: top;
+  text-align: left;
 }
 
 .resume th, .resume td, .resume td * {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 22px!important;
+}
+
+@media screen and (max-width: 639px) {
+  .resume .meta {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    vertical-align: bottom; /* for gecko */
+    text-align: right; /* for chrome */
+  }
+
+  .resume th {
+    background-color: var(--color-background-secondary);
+  }
 }
