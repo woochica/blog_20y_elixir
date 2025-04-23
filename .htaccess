@@ -1,8 +1,0 @@
-Redirect 301 "/index.xml" "/~slink/index.xml"
-Redirect 301 "/resume/" "/~slink/resume/"
-RedirectMatch 301 ^/~slink/journal/$ /~slink/index.html$1
-RedirectMatch 301 ^/journal/(.*)$ /~slink/journal/$1
-RedirectMatch 301 ^/mixtapes/(.*)$ /~slink/mixtapes/$1
-RewriteEngine on
-RewriteCond %{HTTPS} off
-RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
