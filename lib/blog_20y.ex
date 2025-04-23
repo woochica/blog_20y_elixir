@@ -88,7 +88,7 @@ defmodule Blog20y do
     <main>
       <h1 id="title"><%= site_title() %></h1>
       <p>
-      Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, my vegetarian kitchen, and I also write about some reflections on my personal life. I also love to dig music and share my findings as mixtapes.
+      Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, my vegetarian kitchen, and I also share some reflections on my personal life. I love to dig music too and collect my findings as mixtapes.
     </p>
       <hr/>
       <ul>
