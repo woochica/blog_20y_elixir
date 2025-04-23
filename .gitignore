@@ -25,10 +25,8 @@ blog_20y-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-
-# Ignore generated content
-public/
-
 # Ignore user generated site content
+public
 content
 static
+assets
