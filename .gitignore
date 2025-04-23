@@ -28,3 +28,7 @@ blog_20y-*.tar
 
 # Ignore generated content
 public/
+
+# Ignore user generated site content
+content
+static
