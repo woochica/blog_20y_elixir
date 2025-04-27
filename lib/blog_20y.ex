@@ -8,6 +8,7 @@ defmodule Blog20y do
   @site_url Application.fetch_env!(:blog_20y, :site_url)
   @rss_post_limit Application.fetch_env!(:blog_20y, :rss_post_limit)
   @output_dir Application.fetch_env!(:blog_20y, :output_dir)
+  @default_lang Application.fetch_env!(:blog_20y, :default_lang)
 
   def site_title do
     @site_title
@@ -15,6 +16,10 @@ defmodule Blog20y do
 
   def site_url do
     @site_url
+  end
+
+  def default_lang do
+    @default_lang
   end
 
   def tags(tags) do
@@ -37,6 +42,7 @@ defmodule Blog20y do
     ~H"""
     <.layout
     title={~s(#{@post.title} — #{site_title()})}
+    lang={@post.lang}
     >
       <article>
       <div class="post-article">
@@ -71,6 +77,7 @@ defmodule Blog20y do
     ~H"""
     <.layout
     title={"#{@page.title} — #{site_title()}"}
+    lang={default_lang()}
     >
       <article>
       <h1><%= raw @page.title %></h1>
@@ -84,6 +91,7 @@ defmodule Blog20y do
     ~H"""
     <.layout
     title={site_title()}
+    lang={default_lang()}
     >
     <main>
       <h1 id="title"><%= site_title() %></h1>
@@ -122,6 +130,7 @@ defmodule Blog20y do
     ~H"""
     <.layout
     title={"#{@tag} — #{site_title()}"}
+    lang="en"
     >
       <h1 id="title"><%= @tag %></h1>
       <ul>
@@ -139,7 +148,7 @@ defmodule Blog20y do
   def layout(assigns) do
     ~H"""
     <!doctype html>
-    <html>
+    <html lang={@lang}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

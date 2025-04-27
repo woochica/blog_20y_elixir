@@ -22,6 +22,7 @@ defmodule Blog20y.Post do
 
   @site_url Application.fetch_env!(:blog_20y, :site_url)
   @files_url Application.fetch_env!(:blog_20y, :files_url)
+  @default_lang Application.fetch_env!(:blog_20y, :default_lang)
 
   def build(filename, attrs, body) do
     Logger.debug(filename <> ": building post")
@@ -93,7 +94,15 @@ defmodule Blog20y.Post do
         end
       end
 
-    {(Map.to_list(attrs) ++ [publishdate: publishdate, lastmod: lastmod, draft: draft, toc: toc])
+    lang =
+      if attrs[:lang] do
+        attrs[:lang]
+      else
+        @default_lang
+      end
+
+    {(Map.to_list(attrs) ++
+        [publishdate: publishdate, lastmod: lastmod, draft: draft, toc: toc, lang: lang])
      |> Map.new(), body}
   end
 

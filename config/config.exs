@@ -21,5 +21,6 @@ config :blog_20y,
      end),
   files_url: "https://20y.hu",
   title: "20Y",
+  default_lang: "en",
   rss_post_limit: 20,
   output_dir: target
