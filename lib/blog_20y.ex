@@ -127,6 +127,9 @@ defmodule Blog20y do
       <ul>
         <li :for={post <- @posts}>
           <a href={site_url() <> "/" <> post.path}><%= post.title %></a>
+          <span class="post-meta">
+          <%= format_post_date(post.publishdate) %>
+          </span>
         </li>
       </ul>
     </.layout>
