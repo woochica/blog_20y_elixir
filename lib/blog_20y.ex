@@ -136,6 +136,7 @@ defmodule Blog20y do
     lang="en"
     classname="tag"
     >
+      <article>
       <h1 id="title"><%= @tag %></h1>
       <ul>
         <li :for={post <- @posts}>
@@ -145,6 +146,7 @@ defmodule Blog20y do
           </span>
         </li>
       </ul>
+      </article>
     </.layout>
     """
   end
