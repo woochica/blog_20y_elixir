@@ -5,19 +5,19 @@ defmodule Blog20y.Post do
 
   @enforce_keys [:slug, :title, :excerpt, :body, :publishdate, :path]
   defstruct [
-    :slug,
-    :title,
-    :excerpt,
     :body,
-    :tags,
-    :publishdate,
-    :path,
-    :lang,
     :draft,
+    :excerpt,
+    :lang,
     :lastmod,
+    :path,
+    :publishdate,
+    :section
+    :slug,
+    :tags,
+    :title,
     :toc,
     :toclevels,
-    :section
   ]
 
   @site_url Application.fetch_env!(:blog_20y, :site_url)
