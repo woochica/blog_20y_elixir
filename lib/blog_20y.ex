@@ -43,6 +43,7 @@ defmodule Blog20y do
     <.layout
     title={~s(#{@post.title} — #{site_title()})}
     lang={@post.lang}
+    classname={"post #{@post.classname}"}
     >
       <article>
       <div class="post-article">
@@ -78,6 +79,7 @@ defmodule Blog20y do
     <.layout
     title={"#{@page.title} — #{site_title()}"}
     lang={default_lang()}
+    classname="page"
     >
       <article>
       <h1><%= raw @page.title %></h1>
@@ -92,6 +94,7 @@ defmodule Blog20y do
     <.layout
     title={site_title()}
     lang={default_lang()}
+    classname="index"
     >
     <main>
       <h1 id="title"><%= site_title() %></h1>
@@ -131,6 +134,7 @@ defmodule Blog20y do
     <.layout
     title={"#{@tag} — #{site_title()}"}
     lang="en"
+    classname="tag"
     >
       <h1 id="title"><%= @tag %></h1>
       <ul>
@@ -158,7 +162,7 @@ defmodule Blog20y do
         <link rel="icon" type="image/png" sizes="32x32" href={site_url() <> "/favicon-32x32.png"}>
         <link rel="icon" type="image/png" sizes="16x16" href={site_url() <> "/favicon-16x16.png"}>
       </head>
-      <body>
+      <body class={@classname}>
         <%= render_slot(@inner_block) %>
       </body>
     </html>

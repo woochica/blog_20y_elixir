@@ -6,6 +6,7 @@ defmodule Blog20y.Post do
   @enforce_keys [:slug, :title, :excerpt, :body, :publishdate, :path]
   defstruct [
     :body,
+    :classname,
     :draft,
     :excerpt,
     :lang,
