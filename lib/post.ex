@@ -12,12 +12,12 @@ defmodule Blog20y.Post do
     :lastmod,
     :path,
     :publishdate,
-    :section
+    :section,
     :slug,
     :tags,
     :title,
     :toc,
-    :toclevels,
+    :toclevels
   ]
 
   @site_url Application.fetch_env!(:blog_20y, :site_url)
