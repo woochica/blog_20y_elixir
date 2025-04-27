@@ -145,14 +145,8 @@ defmodule Blog20y.Post do
     ~s"""
     <figure><img src="#{image_src}" alt="Mixtape cover" /></figure>
     <style>
-    article {
-        background-image: url(#{image_src});
-        background-blend-mode: color-burn;
-    }
-
-    article > div {
-      padding: 1em;
-      background-color: color-mix(in srgb, var(--color-background) 80%, transparent) !important;
+    :root {
+      --mixtape-background-url: url(#{image_src});
     }
     </style>
     """
