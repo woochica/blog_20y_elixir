@@ -286,6 +286,7 @@ defmodule Blog20y do
 
     Logger.info("Copying static files")
     File.cp_r!("static/content", @output_dir <> "/content")
+    File.cp_r!("assets/fonts", @output_dir <> "/assets")
     File.cp_r!("static/mixtapes", @output_dir <> "/mixtapes")
     File.cp_r!("static/favicon.ico", @output_dir <> "/favicon.ico")
     File.cp_r!("static/favicon-16x16.png", @output_dir <> "/favicon-16x16.png")
