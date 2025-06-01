@@ -1,6 +1,7 @@
 import Config
 
-target = System.get_env("BLOG20Y_TARGET", Path.expand("public"))
+output_dir = System.get_env("BLOG20Y_OUTPUT_DIR", Path.expand("public"))
+site_url = System.get_env("BLOG20Y_SITE_URL")
 
 # Configure tailwind (the version is required)
 config :tailwind,
@@ -9,7 +10,7 @@ config :tailwind,
     args: ~w(
       --config=tailwind.config.js
       --input=assets/css/app.css
-      --output=#{target <> "/assets/app.css"}
+      --output=#{output_dir <> "/assets/app.css"}
     )
   ]
 
@@ -17,10 +18,11 @@ config :blog_20y,
   site_url:
     (case Mix.env() do
        :prod -> "https://20y.hu/~slink"
-       :dev -> target
+       :dev -> site_url
      end),
   files_url: "https://20y.hu",
   title: "20Y",
   default_lang: "en",
   rss_post_limit: 20,
-  output_dir: target
+  output_dir: output_dir
+
