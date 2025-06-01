@@ -65,7 +65,9 @@ defmodule Blog20y do
         <%= if @post.lastmod != @post.publishdate do %>
         It was last updated on <%= format_post_date(@post.lastmod) %>.
         <% end %>
+        <%= if length(@post.tags) > 0 do %>
         It's filed in the <%= tags(@post.tags) %> folder<%= if length(@post.tags) > 1 do "s" else "" end  %>.
+        <% end %>
       </footer>
       </div>
       </div>
@@ -107,7 +109,8 @@ defmodule Blog20y do
           <a href={post.path}><%= post.title %></a>
           <span class="post-meta">
           <%= post.tags |> (Enum.map (fn tag -> ~s(##{tag}) end)) |> Enum.join(", ") %>
-          — <%= format_post_date(post.publishdate) %>
+          <%= if length(post.tags) > 0 do %> — <% end %>
+          <%= format_post_date(post.publishdate) %>
           </span>
         </li>
       </ul>
