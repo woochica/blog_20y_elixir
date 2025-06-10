@@ -115,6 +115,7 @@ defmodule Blog20y do
         </li>
       </ul>
       <hr/>
+      <nav class="page-links">
       <p>Explore more:</p>
       <ul>
         <li :for={page <- @pages}>
@@ -127,6 +128,7 @@ defmodule Blog20y do
           <a href={site_url() <> "/mixtapes/"}>Mixtapes</a>
         </li>
       </ul>
+      </nav>
       </main>
     </.layout>
     """
