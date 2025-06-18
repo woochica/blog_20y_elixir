@@ -171,6 +171,9 @@ defmodule Blog20y do
       </head>
       <body class={@classname}>
         <%= render_slot(@inner_block) %>
+        <!-- 100% privacy-first analytics -->
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+        <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
       </body>
     </html>
     """
