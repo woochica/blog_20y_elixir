@@ -102,7 +102,7 @@ defmodule Blog20y do
       <h1 id="title"><%= site_title() %></h1>
       <p id="hero">
       Hey! This is the journal of Gábor Török. I write about digital technology, permaculture, my vegetarian kitchen, and I also share some reflections on my personal life. I love to dig music too and collect my findings as mixtapes.
-    </p>
+      </p>
       <hr/>
       <ul class="post-index">
         <li :for={post <- @posts}>
@@ -114,7 +114,10 @@ defmodule Blog20y do
           </span>
         </li>
       </ul>
-      <hr/>
+    </main>
+    <hr/>
+    <div class="inverse footer-wrapper">
+    <footer>
       <nav class="page-links">
       <p>Explore more:</p>
       <ul>
@@ -129,7 +132,8 @@ defmodule Blog20y do
         </li>
       </ul>
       </nav>
-      </main>
+    </footer>
+    </div>
     </.layout>
     """
   end
