@@ -118,7 +118,8 @@ defmodule Blog20y.Post do
       |> EEx.eval_string(
         mixtape_cover: &mixtape_cover/1,
         mixtape_disclaimer: &mixtape_disclaimer/1,
-        site_url: @site_url
+        site_url: @site_url,
+        files_url: @files_url
       )
       |> Earmark.as_html(earmark_opts)
 
