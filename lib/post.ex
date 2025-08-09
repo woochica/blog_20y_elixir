@@ -159,7 +159,7 @@ defmodule Blog20y.Post do
 
     <p class="mixtape-disclaimer">
     I stopped using music streaming services and started to explore music on KEXP and <a href="#{@site_url}/journal/bandcamp/">purchase records on Bandcamp</a>.
-    If you can also afford it, please support listener powered radios and the artists directly. If you wish to listen to this mixtape,
+    If you can also afford it, please support listener powered radios and the artists directly. If you wish to save this mixtape to your collection,
     <a href="#{@files_url}/#{file}">you can grab the files</a>.
     </p>
     """
